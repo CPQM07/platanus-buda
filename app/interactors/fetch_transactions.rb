@@ -27,7 +27,8 @@ module Interactors
     def last_transaction(market)
       response = Services::Transactions.fetch(market)
       entries = response['trades']['entries']
-      entries.sort_by{|entry| entry[4]}.last
+      # index 2 is price regarding to country currency and used it to sort
+      entries.sort_by{|entry| entry[2]}.last 
     end
   end
 end
