@@ -4,7 +4,8 @@ module Services
   class Markets
     @@client = Services::ApiBuda.new
 
-    def get_markets
+    # Method to call markets from buda using Faraday Client method
+    def self.fetch
       @@client.fetch("markets")
     end
   end
